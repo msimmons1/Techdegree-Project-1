@@ -3,18 +3,7 @@ Treehouse Techdegree:
 FSJS project 1 - A Random Quote Generator
 ******************************************/
 
-// Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
-
-
-/***
-  Create the array of quote objects and name it `quotes`.
-  Add at least five quote objects to the `quotes` array.
-  Give each quote object a `quote` and `source` property.
-
-  Recommended:
-    - Add at least one `year` and/or `citation` property to at least one
-      quote object.
-***/
+//  Array of 7 quote objects that contain the following properties: quote, source, and citation.
 let quotes = [
   {
     quote : "Do. Or do not. There is no try.",
@@ -33,7 +22,7 @@ let quotes = [
   },
   {
     quote : "Use it or lose it.",
-    source : "Unknown"
+    source : "Unknown author"
   },
   {
     quote : "Our greatest fear should not be of failure but of succeeding at things in life that don't really matter.",
@@ -53,24 +42,18 @@ let quotes = [
 ];
 
 /***
-  Create the `getRandomQuote` function to:
-   - generate a random number
-   - use the random number to `return` a random quote object from the
-     `quotes` array.
+  Function to create a random number and then use that random number to return an object from a specified array.
+  Will be used to return random quotes from the array above.
 ***/
 function getRandomQuote (array) {
   let randNum = Math.floor(Math.random () * 7);
-  return quotes[randNum];
+  return array[randNum];
 };
 
 /***
-  Create the `printQuote` function to:
-   - call the `getRandomQuote` function and assign it to a variable.
-   - use the properties of the quote object stored in the variable to
-     create your HTML string.
-   - use conditionals to make sure the optional properties exist before
-     they are added to the HTML string.
-   - set the `innerHTML` of the `quote-box` div to the HTML string.
+ This function calls the getRandomQuote function above to return a random quote object with it's properties.
+ Then, a conditional statement is used to determine which properties to print to the html file since not every quote has a citation.
+ The function then prints a message to the html file that contains the quote and other properites.
 ***/
 function printQuote () {
   let randQuote = getRandomQuote (quotes);
@@ -91,6 +74,3 @@ function printQuote () {
 ***/
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-
-
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
